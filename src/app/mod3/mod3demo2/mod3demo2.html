@@ -1,0 +1,25 @@
+<label for="name">Nom :</label>
+<input id="name" type="text" [(ngModel)]="name">
+<button (click)="addUser()">Ajouter</button>
+<button (click)="resetName()">Reset</button>
+
+<!--depuis angular 17-->
+@if (name) {
+  <h2>User : {{ name }}</h2>
+}
+
+<!--old school-->
+<!--<h2 *ngIf="name">{{ name }}</h2>-->
+
+<ul>
+  @for (user of users; track $index) {
+    <li>{{ user }}</li>
+  } @empty {
+    <p>Pas de users !</p>
+  }
+</ul>
+
+
+
+
+

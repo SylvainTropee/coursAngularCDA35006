@@ -5,7 +5,8 @@
 
 <!--depuis angular 17-->
 @if (name) {
-  <h2>User : {{ name }}</h2>
+  <h2 [style]="{'color' : name.includes('a') ? 'green' : 'red'}"
+      [class]="{'blue' : name.length > 10, 'yellow' : name.length < 5}">User : {{ name }}</h2>
 }
 
 <!--old school-->
@@ -13,7 +14,10 @@
 
 <ul>
   @for (user of users; track $index) {
-    <li>{{ user }}</li>
+    <li (click)="removeUser($index)"
+        [style]="{'color' : user.includes('a') ? 'green' : 'red'}"
+        [class]="{'blue' : user.length > 10, 'yellow' : user.length < 5}"
+    >{{ user }}</li>
   } @empty {
     <p>Pas de users !</p>
   }

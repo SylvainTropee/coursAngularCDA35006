@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-demo1',
@@ -6,16 +6,28 @@ import { Component } from '@angular/core';
   templateUrl: './demo1.html',
   styleUrl: './demo1.css',
 })
-export class Demo1 {
+export class Demo1 implements OnInit, AfterViewInit, OnDestroy {
 
-  public username : string;
+  public username?: string;
 
   constructor() {
+    //this.username = "Raymond";
+  }
+
+  ngOnDestroy(): void {
+    console.log("Composant détruit")
+  }
+
+  ngAfterViewInit(): void {
+    console.log("Vue chargée")
+  }
+
+  ngOnInit(): void {
+    console.log("Initialisation des attibuts")
     this.username = "Raymond";
   }
 
-
-  public changeUsername(){
+  public changeUsername() {
     this.username = "Michel"
   }
 

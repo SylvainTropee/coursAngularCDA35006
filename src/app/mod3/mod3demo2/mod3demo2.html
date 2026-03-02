@@ -17,11 +17,17 @@
     <li (click)="removeUser($index)"
         [style]="{'color' : user.includes('a') ? 'green' : 'red'}"
         [class]="{'blue' : user.length > 10, 'yellow' : user.length < 5}"
-    >{{ user }}</li>
+    >{{ user }}
+    </li>
   } @empty {
     <p>Pas de users !</p>
   }
 </ul>
+
+<p>{{ date }}</p>
+<p>{{ date | date : 'dd/MM/yyyy' }}</p>
+<p>{{ date | date : 'shortDate' }}</p>
+<p>{{ date | date : 'long' : undefined : 'fr_FR' }}</p>
 
 
 

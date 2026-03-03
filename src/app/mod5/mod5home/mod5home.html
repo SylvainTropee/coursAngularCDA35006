@@ -1,4 +1,11 @@
 <h2>Home ! </h2>
 
+<div routerLink="/" routerLinkActive="michel">Home</div>
+
 <div routerLink="/about">Go to About !</div>
+
+<div [routerLink]="['detail', 456]">Go to About !</div>
+<div routerLink="/detail/456">Go to About !</div>
+
+
 <button (click)="goToDetail()">Go to Detail</button>

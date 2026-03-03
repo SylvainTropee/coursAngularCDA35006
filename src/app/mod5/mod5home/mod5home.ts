@@ -1,10 +1,11 @@
 import {Component} from '@angular/core';
-import {Router, RouterLink} from '@angular/router';
+import {Router, RouterLink, RouterLinkActive} from '@angular/router';
 
 @Component({
   selector: 'app-mod5home',
   imports: [
-    RouterLink
+    RouterLink,
+    RouterLinkActive
   ],
   templateUrl: './mod5home.html',
   styleUrl: './mod5home.css',
@@ -16,8 +17,8 @@ export class Mod5home {
 
 
   public goToDetail() {
-    this.router.navigate(["/detail"])
-    // this.router.navigateByUrl("/detail")
+    this.router.navigate(["/detail", 456])
+    // this.router.navigateByUrl("/detail/456")
   }
 
 }

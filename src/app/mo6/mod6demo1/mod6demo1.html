@@ -1,27 +1,27 @@
-<form action="">
+<form [formGroup]="form">
 
   <label for="email">Email</label>
-  <input type="email" id="email" name="email">
+  <input type="email" id="email" name="email" formControlName="email">
 
   <label for="password">Mot de passe</label>
-  <input type="password" id="password" name="password">
+  <input type="password" id="password" name="password" formControlName="password">
 
   <label for="date">Date</label>
-  <input type="date" id="date" name="date">
+  <input type="date" id="date" name="date" formControlName="date">
 
   <label for="newsletter">
-    <input type="checkbox" id="newsletter" name="newsletter">
+    <input type="checkbox" id="newsletter" name="newsletter" formControlName="newsletter">
     S'abonner à la news letter ?
   </label>
 
-  <select name="job" id="job">
+  <select name="job" id="job" formControlName="job">
     <option value="dev">Développeur</option>
     <option value="admin">Admin sys</option>
     <option value="chef">Chef de projet</option>
   </select>
 
   <label for="note">Note</label>
-  <input type="range" name="note" id="note" min="0" max="10" step="1">
+  <input type="range" name="note" id="note" min="0" max="10" step="1" formControlName="note">
 
   <input type="submit" value="Envoyer">
 </form>

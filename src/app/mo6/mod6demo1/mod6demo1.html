@@ -1,13 +1,37 @@
-<form [formGroup]="form">
+<form [formGroup]="form" (submit)="onSubmit()">
 
   <label for="email">Email</label>
   <input type="email" id="email" name="email" formControlName="email">
+  @if (form.get('email')?.dirty || form.get('email')?.touched) {
+    @if (form.get('email')?.hasError('email')) {
+      <p class="error">Le champ n'est pas valide !</p>
+    }
+    @if (form.get('email')?.hasError('required')) {
+      <p class="error">Le champ est requis !</p>
+    }
+  }
 
   <label for="password">Mot de passe</label>
   <input type="password" id="password" name="password" formControlName="password">
+  @if (form.get('password')?.dirty || form.get('password')?.touched) {
+    @if (form.get('password')?.hasError('pattern')) {
+      <p class="error">Le mot de passe ne respecte pas le format attendu !</p>
+    }
+    @if (form.get('password')?.hasError('required')) {
+      <p class="error">Le champ est requis !</p>
+    }
+  }
 
   <label for="date">Date</label>
   <input type="date" id="date" name="date" formControlName="date">
+  @if (form.get('date')?.dirty || form.get('date')?.touched) {
+    @if (form.get('date')?.hasError('required')) {
+      <p class="error">Le champ est requis !</p>
+    }
+    @if (form.get('date')?.hasError('greaterThan')) {
+      <p class="error">Pas de date dans le turfu !</p>
+    }
+  }
 
   <label for="newsletter">
     <input type="checkbox" id="newsletter" name="newsletter" formControlName="newsletter">
@@ -19,9 +43,27 @@
     <option value="admin">Admin sys</option>
     <option value="chef">Chef de projet</option>
   </select>
+  @if (form.get('job')?.dirty || form.get('job')?.touched) {
+    @if (form.get('job')?.hasError('pattern')) {
+      <p class="error">La valeur du champs est pas ok !!</p>
+    }
+  }
 
   <label for="note">Note</label>
   <input type="range" name="note" id="note" min="0" max="10" step="1" formControlName="note">
+  @if (form.get('note')?.dirty || form.get('note')?.touched) {
+    @if (form.get('note')?.hasError('min')) {
+      <p class="error">0 min !</p>
+    }
+    @if (form.get('note')?.hasError('max')) {
+      <p class="error">10 max !</p>
+    }
+  }
 
   <input type="submit" value="Envoyer">
 </form>
+
+<!--template driven form-->
+<label for="name">Name</label>
+<input (input)="checkName($event)" type="text" [(ngModel)]="name" id="name" name="name">
+

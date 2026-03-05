@@ -5,9 +5,17 @@
 
 <p>Joke 2</p>
 @let joke2 = joke2$ | async;
-<p>{{ joke2.value }}</p>
+<!--<p>{{ joke2.value }}</p>-->
 
-<p>Joke 3</p>
+<p>Joke 2 bis</p>
 @if (joke2$ | async; as joke3) {
   <p>{{ joke3.value }}</p>
 }
+
+<p>Joke 3 </p>
+@if (joke3$ | async; as joke3) {
+  <p>{{ joke3.value }}</p>
+  <img src="{{joke3.iconUrl}}">
+}
+
+

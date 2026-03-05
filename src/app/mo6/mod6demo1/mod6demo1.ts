@@ -9,6 +9,7 @@ import {AbstractControl, FormControl, FormGroup, FormsModule, ReactiveFormsModul
   ],
   templateUrl: './mod6demo1.html',
   styleUrl: './mod6demo1.css',
+  standalone: true
 })
 export class Mod6demo1 {
 

@@ -1,0 +1,9 @@
+<button (click)="loadJoke()">
+  Get a joke !
+</button>
+
+<!--@if (joke$ | async; as joke) {-->
+<!--  <p>{{ joke.value }}</p>-->
+<!--}-->
+
+<p>{{ joke()?.value }}</p>

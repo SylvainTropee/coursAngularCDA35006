@@ -30,6 +30,7 @@ export class Mod7demo1 {
     this.joke2$ = this.jokeService.getJoke()
     this.joke3$ = this.jokeService.getJoke3()
 
+    this.jokeService.postJoke().subscribe()
 
     //objet observable
     const observable = new Observable(
